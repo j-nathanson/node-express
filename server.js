@@ -3,6 +3,8 @@
 const express = require('express');
 const morgan = require('morgan');
 const campsiteRouter = require('./routes/campsiteRouter');
+const promotionRouter = require('./routes/promotionRouter');
+const partnerRouter = require('./routes/partnerRouter');
 
 // local host and port
 const hostname = 'localhost';
@@ -14,8 +16,10 @@ const app = express();
 app.use(morgan('dev'));
 app.use(express.json());
 
-// provide route path
+// provide route paths
 app.use('/campsites', campsiteRouter);
+app.use('/promotions', promotionRouter);
+app.use('/partners', partnerRouter);
 
 // express.static serves static files and is based on serve-static.
 // __dirname absolute path of the current directory of the file we are in
